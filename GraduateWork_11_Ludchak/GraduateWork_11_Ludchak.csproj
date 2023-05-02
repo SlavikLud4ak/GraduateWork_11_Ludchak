@@ -195,6 +195,8 @@
     <Compile Include="MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Models\VacationPlan.cs" />
+    <Compile Include="Models\LogUser.cs" />
     <Compile Include="Models\Employee.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -245,8 +247,8 @@
     </PropertyGroup>
     <Error Condition="!Exists('..\packages\Microsoft.Azure.Cosmos.3.3.3\build\netstandard2.0\Microsoft.Azure.Cosmos.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Azure.Cosmos.3.3.3\build\netstandard2.0\Microsoft.Azure.Cosmos.targets'))" />
   </Target>
-	<PropertyGroup>
-		<LangVersion>8.0</LangVersion>
-		<Nullable>enable</Nullable>
-	</PropertyGroup>
+  <PropertyGroup>
+    <LangVersion>8.0</LangVersion>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
 </Project>
