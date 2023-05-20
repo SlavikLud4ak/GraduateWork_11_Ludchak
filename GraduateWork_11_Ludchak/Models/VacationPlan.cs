@@ -17,8 +17,6 @@ namespace GraduateWork_11_Ludchak.Models
         public int? AnnualBase { get; set; }
         public string? VacationTime { get; set; }
         public int? AdditionalVacation { get; set; }        
-        public string? AddVacationTime { get; set; }        
-        public Employee? employee { get; set; }
-
+        public string? AddVacationTime { get; set; }
     }
 }

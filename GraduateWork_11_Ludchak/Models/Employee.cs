@@ -15,6 +15,7 @@ namespace GraduateWork_11_Ludchak.Models
         public string? FullName { get; set; }
         public string? Position { get; set; }
         public string? Departament { get; set; }
-        public DateTime? StartDate { get; set; }     
+        public DateTime? StartDate { get; set; }
+        public List<VacationPlan>? VacationPlans { get; set; }
     }
 }
