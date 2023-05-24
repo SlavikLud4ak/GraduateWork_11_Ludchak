@@ -73,6 +73,16 @@ namespace GraduateWork_11_Ludchak.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _1633830 {
+            get {
+                object obj = ResourceManager.GetObject("1633830", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap _2546743 {
             get {
                 object obj = ResourceManager.GetObject("2546743", resourceCulture);
@@ -86,6 +96,16 @@ namespace GraduateWork_11_Ludchak.Properties {
         internal static System.Drawing.Bitmap _484611 {
             get {
                 object obj = ResourceManager.GetObject("484611", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap _7729313 {
+            get {
+                object obj = ResourceManager.GetObject("7729313", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

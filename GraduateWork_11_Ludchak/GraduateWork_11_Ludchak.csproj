@@ -58,6 +58,9 @@
     <Reference Include="Bunifu.UI.WinForms.BunifuDataGridView">
       <HintPath>..\..\BunifuCrack-main\BunifuCrack-main\Bunifu.UI.WinForms.BunifuDataGridView.dll</HintPath>
     </Reference>
+    <Reference Include="Bunifu.UI.WinForms.BunifuDatePicker">
+      <HintPath>..\..\BunifuCrack-main\BunifuCrack-main\Bunifu.UI.WinForms.BunifuDatePicker.dll</HintPath>
+    </Reference>
     <Reference Include="Bunifu.UI.WinForms.BunifuDropdown">
       <HintPath>..\..\BunifuCrack-main\BunifuCrack-main\Bunifu.UI.WinForms.BunifuDropdown.dll</HintPath>
     </Reference>
@@ -221,6 +224,9 @@
     <Compile Include="Models\Employee.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FormCRUD&amp;Log\FormEmployeeCRUD.resx">
+      <DependentUpon>FormEmployeeCRUD.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -266,6 +272,8 @@
     <Content Include="Img\1237946.png" />
     <Content Include="Img\2546743.png" />
     <Content Include="Img\484611.png" />
+    <None Include="Resources\7729313.png" />
+    <None Include="Resources\1633830.png" />
     <None Include="Resources\484611.png" />
     <None Include="Resources\2546743.png" />
     <None Include="Resources\1237946.png" />
