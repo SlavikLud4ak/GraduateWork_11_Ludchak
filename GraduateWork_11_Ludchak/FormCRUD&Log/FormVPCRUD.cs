@@ -45,7 +45,14 @@ namespace GraduateWork_11_Ludchak.FormCRUD_Log
 
                     if (vacationDBContext.Employees != null)
                     {
-                        var vp = await vacationDBContext.Employees.SelectMany(employee => employee.VacationPlans).Where(vacationPlan => vacationPlan.Id == IdPosition).FirstAsync();
+                        //var vp = await vacationDBContext.Employees
+                        //    .SelectMany(employee => employee.VacationPlans)
+                        //    .Where(vacationPlan => vacationPlan.Id == IdPosition)
+                        //    .FirstAsync();
+                        var vp = employees
+                            .SelectMany(e => e.VacationPlans)
+                            .FirstOrDefault(vp => vp.Id == IdPosition);
+
                         this.bunifuDatePicker1.Value = (DateTime)vp.WorkingPeriodStart;
                         this.bunifuDatePicker2.Value = (DateTime)vp.WorkingPeriodEnd;
                         this.materialSlider1.Value = Convert.ToInt16(vp.AnnualBase);
@@ -87,6 +94,10 @@ namespace GraduateWork_11_Ludchak.FormCRUD_Log
                             var employee = await vacationDBContext.Employees.Where(e => e.FullName == this.materialComboBox3.Text).FirstOrDefaultAsync();
                             if (employee != null)
                             {
+                                if (employee.VacationPlans == null)
+                                {
+                                    employee.VacationPlans = new List<VacationPlan>();
+                                }
                                 var vacationPlan = new VacationPlan()
                                 {
                                     Id = Guid.NewGuid().ToString(),
@@ -106,18 +117,23 @@ namespace GraduateWork_11_Ludchak.FormCRUD_Log
                     case "u":
                         if (vacationDBContext.Employees != null)
                         {
-                            var vp = await vacationDBContext.Employees.Where(e => e.FullName == this.materialComboBox3.Text).SelectMany(employee => employee.VacationPlans).Where(vacationPlan => vacationPlan.Id == IdPosition).FirstOrDefaultAsync();
-                            if (vp != null)
+                            var employee = await vacationDBContext.Employees.FirstOrDefaultAsync(e => e.FullName == this.materialComboBox3.Text);
+                            if (employee != null)
                             {
-                                vp.WorkingPeriodStart = this.bunifuDatePicker1.Value;
-                                vp.WorkingPeriodEnd = this.bunifuDatePicker2.Value;
-                                vp.AnnualBase = this.materialSlider1.Value;
-                                vp.VacationTime = this.materialComboBox1.Text;
-                                vp.AdditionalVacation = this.materialSlider2.Value;
-                                vp.AddVacationTime = this.materialComboBox2.Text;
-                                await vacationDBContext.SaveChangesAsync();
+                                var vacationPlan = employee.VacationPlans.FirstOrDefault(vp => vp.Id == IdPosition);
+                                if (vacationPlan != null)
+                                {
+                                    vacationPlan.WorkingPeriodStart = this.bunifuDatePicker1.Value;
+                                    vacationPlan.WorkingPeriodEnd = this.bunifuDatePicker2.Value;
+                                    vacationPlan.AnnualBase = this.materialSlider1.Value;
+                                    vacationPlan.VacationTime = this.materialComboBox1.Text;
+                                    vacationPlan.AdditionalVacation = this.materialSlider2.Value;
+                                    vacationPlan.AddVacationTime = this.materialComboBox2.Text;
+                                    await vacationDBContext.SaveChangesAsync();
+                                }
                             }
                         }
+
                         this.Close();
                         break;
                     case "d":

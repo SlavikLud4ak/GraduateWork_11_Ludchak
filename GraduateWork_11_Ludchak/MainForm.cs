@@ -87,21 +87,25 @@ namespace GraduateWork_11_Ludchak
                 if (vacationDBContext.Employees != null)
                 {
                     var employees = await vacationDBContext.Employees.ToListAsync();
-                    var VP = vacationDBContext.Employees
-                 .SelectMany(e => e.VacationPlans)
-                 .ToList(); // Switch to client-side evaluation using ToList()
-                    foreach (var vp in VP)
+
+                    foreach (var employee in employees)
                     {
-                        this.bunifuDataGridView2.Rows.Add();
-                        this.bunifuDataGridView2.Rows[i].Cells[0].Value = vp.Id;
-                        this.bunifuDataGridView2.Rows[i].Cells[1].Value = vp.WorkingPeriodStart;
-                        this.bunifuDataGridView2.Rows[i].Cells[2].Value = vp.WorkingPeriodEnd;
-                        this.bunifuDataGridView2.Rows[i].Cells[3].Value = vp.AnnualBase;
-                        this.bunifuDataGridView2.Rows[i].Cells[4].Value = vp.VacationTime;
-                        this.bunifuDataGridView2.Rows[i].Cells[5].Value = vp.AdditionalVacation;
-                        this.bunifuDataGridView2.Rows[i].Cells[6].Value = vp.AddVacationTime;
-                        this.bunifuDataGridView2.Rows[i].Cells[7].Value = employees.FirstOrDefault(employee => employee.VacationPlans != null && employee.VacationPlans.Any(vacationPlan => vacationPlan.Id == vp.Id))?.FullName;
-                        ++i;
+                        if (employee.VacationPlans != null)
+                        {
+                            foreach (var vacationPlan in employee.VacationPlans)
+                            {
+                                this.bunifuDataGridView2.Rows.Add();
+                                this.bunifuDataGridView2.Rows[i].Cells[0].Value = vacationPlan.Id;
+                                this.bunifuDataGridView2.Rows[i].Cells[1].Value = vacationPlan.WorkingPeriodStart;
+                                this.bunifuDataGridView2.Rows[i].Cells[2].Value = vacationPlan.WorkingPeriodEnd;
+                                this.bunifuDataGridView2.Rows[i].Cells[3].Value = vacationPlan.AnnualBase;
+                                this.bunifuDataGridView2.Rows[i].Cells[4].Value = vacationPlan.VacationTime;
+                                this.bunifuDataGridView2.Rows[i].Cells[5].Value = vacationPlan.AdditionalVacation;
+                                this.bunifuDataGridView2.Rows[i].Cells[6].Value = vacationPlan.AddVacationTime;
+                                this.bunifuDataGridView2.Rows[i].Cells[7].Value = employee.FullName;
+                                ++i;
+                            }
+                        }
                     }
                 }
             }
