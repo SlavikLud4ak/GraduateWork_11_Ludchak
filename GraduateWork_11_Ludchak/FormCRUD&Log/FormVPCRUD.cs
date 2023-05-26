@@ -30,7 +30,7 @@ namespace GraduateWork_11_Ludchak.FormCRUD_Log
             CrudOperation = crudOperation;
             IdPosition = idPosition;
             FullNameEmp = fullNameEmp;
-        }
+        }        
 
         private async void FormVPCRUD_Load(object sender, EventArgs e)
         {
@@ -44,18 +44,14 @@ namespace GraduateWork_11_Ludchak.FormCRUD_Log
                 {
 
                     if (vacationDBContext.Employees != null)
-                    {
-                        //var vp = await vacationDBContext.Employees
-                        //    .SelectMany(employee => employee.VacationPlans)
-                        //    .Where(vacationPlan => vacationPlan.Id == IdPosition)
-                        //    .FirstAsync();
+                    {                        
                         var vp = employees
                             .SelectMany(e => e.VacationPlans)
                             .FirstOrDefault(vp => vp.Id == IdPosition);
 
                         this.bunifuDatePicker1.Value = (DateTime)vp.WorkingPeriodStart;
                         this.bunifuDatePicker2.Value = (DateTime)vp.WorkingPeriodEnd;
-                        this.materialSlider1.Value = Convert.ToInt16(vp.AnnualBase);
+                        this.materialSlider1.Value = Convert.ToInt16(vp.AnnualBase);                        
                         this.materialSlider2.Value = Convert.ToInt16(vp.AdditionalVacation);
                         this.materialComboBox1.Text = vp.VacationTime.ToString();
                         this.materialComboBox2.Text = vp.AddVacationTime.ToString();
@@ -63,6 +59,10 @@ namespace GraduateWork_11_Ludchak.FormCRUD_Log
                     }
 
                 }
+            }
+
+            if (CrudOperation == "u") { this.materialComboBox3.Visible = false; 
+                this.materialLabel2.Visible = false;
             }
 
             if (CrudOperation == "d")
@@ -133,7 +133,6 @@ namespace GraduateWork_11_Ludchak.FormCRUD_Log
                                 }
                             }
                         }
-
                         this.Close();
                         break;
                     case "d":
@@ -156,6 +155,44 @@ namespace GraduateWork_11_Ludchak.FormCRUD_Log
                         break;
                 }
 
+            }
+        }
+
+        private int CalculatorDate(int empyear)
+        {
+            int year = 35;
+            if (empyear < 10)
+                year = 30;
+            else
+            {
+                for (int i = 11; i <= 15; i++)
+                {
+                    if (empyear >= i)
+                    {
+                        year += 2;
+                    }
+                }
+            }
+            return year;
+
+        }
+
+        private async void materialComboBox3_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            DateTime startDate = DateTime.Now;
+            using (var vacationDBContext = new VacationDBContext())
+            {
+                if (vacationDBContext.Employees != null && CrudOperation == "c")
+                { 
+                    var selectedFullName = materialComboBox3.Text;
+                    var employee = await vacationDBContext.Employees.FirstOrDefaultAsync(e => e.FullName == selectedFullName);
+
+                    if (employee != null)
+                    {                        
+                        materialSlider1.Value = CalculatorDate(startDate.Year - Convert.ToInt32(employee.StartDate.ToString()));                        
+                    }
+                     
+                }
             }
         }
     }

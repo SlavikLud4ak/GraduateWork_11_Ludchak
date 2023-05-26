@@ -27,6 +27,8 @@ namespace GraduateWork_11_Ludchak
             materialSkinManager.AddFormToManage(this);
             materialSkinManager.Theme = MaterialSkinManager.Themes.DARK;
             materialSkinManager.ColorScheme = new ColorScheme(Primary.Amber400, Primary.BlueGrey900, Primary.Amber400, Accent.Amber400, TextShade.WHITE);
+            this.bunifuDataGridView2.Columns[1].DefaultCellStyle.Format = "dd.MM.yyyy";
+            this.bunifuDataGridView2.Columns[2].DefaultCellStyle.Format = "dd.MM.yyyy";
             upDateTable();
             upDateTableVP();
 
