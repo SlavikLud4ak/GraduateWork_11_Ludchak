@@ -86,6 +86,7 @@ namespace GraduateWork_11_Ludchak.FormCRUD_Log
 
         private async void FormEmployeeCRUD_LoadAsync(object sender, EventArgs e)
         {
+            bunifuDatePicker1.CustomFormat = "yyyy";
             if (!string.IsNullOrEmpty(IdPosition))
             {
                 using (var vacationDBContext = new VacationDBContext())
