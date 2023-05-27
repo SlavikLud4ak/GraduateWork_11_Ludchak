@@ -18,6 +18,7 @@ namespace GraduateWork_11_Ludchak
 {
     public partial class MainForm : MaterialForm
     {
+        public int lockedPage = 1;
 
         public MainForm()
         {
@@ -30,8 +31,7 @@ namespace GraduateWork_11_Ludchak
             this.bunifuDataGridView2.Columns[1].DefaultCellStyle.Format = "dd.MM.yyyy";
             this.bunifuDataGridView2.Columns[2].DefaultCellStyle.Format = "dd.MM.yyyy";
             upDateTable();
-            upDateTableVP();
-
+            upDateTableVP();            
         }
 
         private void materialFloatingActionButton1_Click(object sender, EventArgs e)
@@ -145,6 +145,60 @@ namespace GraduateWork_11_Ludchak
             formVPCRUD.FormClosed += CalledForm_FormClosedVP;
             formVPCRUD.Show();
             if (formVPCRUD.IsDisposed) upDateTableVP();
+        }
+
+        private void materialButton2_Click(object sender, EventArgs e)
+        {           
+            FormLogIn formLogIn = new FormLogIn();
+            formLogIn.Show();
+        }
+
+        private async void materialButton1_Click(object sender, EventArgs e)
+        {
+            using (var vacationDBContext = new VacationDBContext())
+            {
+                var login = this.materialTextBox1.Text;
+                var password = this.materialTextBox2.Text;
+
+                var logUser = await vacationDBContext.LogUsers.FirstOrDefaultAsync(user => user.Login == login && user.Password == password);
+
+                if (logUser != null)
+                {
+                    // The login and password are valid
+                    MaterialMessageBox.Show("Вхід пройшов успішно");
+                    materialTabControl1.Selecting -= MaterialTabControl1_Selecting;
+
+                    // Do further processing or navigate to another screen
+                }
+                else
+                {
+                    // The login or password is incorrect
+                    MaterialMessageBox.Show("Невірні дані");
+                }
+            }
+        }
+
+        private void MainForm_Load(object sender, EventArgs e)
+        {            
+            materialTabControl1.SelectedTab = tabPage1;
+            materialTabControl1.Selecting += MaterialTabControl1_Selecting;
+        }
+
+        private void MaterialTabControl1_Selecting(object sender, TabControlCancelEventArgs e)
+        {
+            // Cancel the event if the selected TabPage is not the first one
+            if (e.TabPage != tabPage1) // Replace tabPage1 with the actual first TabPage
+            {
+                e.Cancel = true;
+            }
+        }
+
+        private void materialButton3_Click(object sender, EventArgs e)
+        {
+            this.materialTextBox1.Clear();
+            this.materialTextBox2.Clear();
+            materialTabControl1.SelectedTab = tabPage1;
+            materialTabControl1.Selecting += MaterialTabControl1_Selecting;
         }
     }
 }

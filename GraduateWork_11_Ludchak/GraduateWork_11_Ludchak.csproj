@@ -213,6 +213,12 @@
     <Compile Include="FormCRUD&amp;Log\FormEmployeeCRUD.Designer.cs">
       <DependentUpon>FormEmployeeCRUD.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormCRUD&amp;Log\FormLogIn.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormCRUD&amp;Log\FormLogIn.Designer.cs">
+      <DependentUpon>FormLogIn.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormCRUD&amp;Log\FormVPCRUD.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -232,6 +238,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="FormCRUD&amp;Log\FormEmployeeCRUD.resx">
       <DependentUpon>FormEmployeeCRUD.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormCRUD&amp;Log\FormLogIn.resx">
+      <DependentUpon>FormLogIn.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormCRUD&amp;Log\FormVPCRUD.resx">
       <DependentUpon>FormVPCRUD.cs</DependentUpon>
