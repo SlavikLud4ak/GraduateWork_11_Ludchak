@@ -109,7 +109,6 @@ namespace GraduateWork_11_Ludchak.FormCRUD_Log
                 this.materialTextBox23.ReadOnly = true;
                 this.bunifuDatePicker1.Enabled = false;
             } 
-
         }
     }
 }

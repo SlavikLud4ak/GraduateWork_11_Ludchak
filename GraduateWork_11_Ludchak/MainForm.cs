@@ -200,5 +200,19 @@ namespace GraduateWork_11_Ludchak
             materialTabControl1.SelectedTab = tabPage1;
             materialTabControl1.Selecting += MaterialTabControl1_Selecting;
         }
+
+        private async void materialButton4_Click(object sender, EventArgs e)
+        {            
+            using (var vacationDBContext = new VacationDBContext())
+            {
+                if (vacationDBContext.Employees != null)
+                {
+                    var employees = await vacationDBContext.Employees.ToListAsync();
+                    var generator = new EmployeeDocumentGenerator();
+                    generator.Generate(employees);
+                }
+            }
+           
+        }
     }
 }

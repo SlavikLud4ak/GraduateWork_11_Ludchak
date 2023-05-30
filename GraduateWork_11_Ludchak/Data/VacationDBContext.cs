@@ -19,9 +19,9 @@ namespace GraduateWork_11_Ludchak.Data
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseCosmos(
-                "https://yaroslavl-db.documents.azure.com:443/",
-                "hTNHPcGMtJ4jgnCJs8vjciuRkHW04mB0E2wWEvgImP5mv7NCW337XkO1q4G3mtLVE6xyycdxVLTFACDbERbWBQ==",
-                "vc-db");
+                "https://vp-db.documents.azure.com:443/",
+                "zoVY3Hwrte7HPGNhEtOHU4osbi1Z1by1EA1rq3637Exhs1NCx4fKbKVsKzjfWMnF3sB2O3q3LHEbACDbiNxrQQ==",
+                "vp-db");
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
