@@ -290,7 +290,7 @@
             this.materialComboBox3.Size = new System.Drawing.Size(362, 49);
             this.materialComboBox3.StartIndex = 0;
             this.materialComboBox3.TabIndex = 28;
-            this.materialComboBox3.SelectedIndexChanged += new System.EventHandler(this.materialComboBox3_SelectedIndexChanged);            
+            this.materialComboBox3.SelectedIndexChanged += new System.EventHandler(this.materialComboBox3_SelectedIndexChanged);
             // 
             // materialLabel2
             // 

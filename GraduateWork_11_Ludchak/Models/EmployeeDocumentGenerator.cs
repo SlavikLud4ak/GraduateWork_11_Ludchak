@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using System.Linq;
 
 
+
+
 namespace GraduateWork_11_Ludchak.Models
 {
     internal class EmployeeDocumentGenerator
@@ -11,7 +13,7 @@ namespace GraduateWork_11_Ludchak.Models
         public void Generate(List<Employee> employees) {
             // Create a new Word document
             Application wordApp = new Application();
-            Document doc = wordApp.Documents.Add();
+            Microsoft.Office.Interop.Word.Document doc = wordApp.Documents.Add();
 
             Range fontRange = doc.Range();
             fontRange.Font.Name = "Times New Roman";
@@ -31,9 +33,10 @@ namespace GraduateWork_11_Ludchak.Models
                     }                    
                 }
             }
+            wordApp.WindowState = WdWindowState.wdWindowStateNormal;
 
             // Create a table
-            Table table = doc.Tables.Add(doc.Range(), 1, 9);
+            Microsoft.Office.Interop.Word.Table table = doc.Tables.Add(doc.Range(), 1, 9);
             table.Borders.Enable = 1;
             table.AutoFitBehavior(WdAutoFitBehavior.wdAutoFitContent);
 
@@ -90,9 +93,9 @@ namespace GraduateWork_11_Ludchak.Models
                             if (employee.Departament != employeeNext.Departament)
                             {
                                 Row totalRow = table.Rows.Add();
-                                totalRow.Cells.Merge();
-                                totalRow.Cells[1].Range.Bold = 1;
-                                totalRow.Cells[1].Range.Text = employee.Departament.ToString();
+                                totalRow.Cells[5].Range.Bold = 1;
+                                //totalRow.Cells[5].Merge(totalRow.Cells[6]);
+                                totalRow.Cells[5].Range.Text = employee.Departament.ToString();                                
                             }
                         }
                     }
@@ -119,26 +122,7 @@ namespace GraduateWork_11_Ludchak.Models
             //            }
             //        }
             //    }
-            //}
-
-            foreach (Row row in table.Rows)
-            {
-                Cell departmentCell = row.Cells[1];
-                string departmentText = departmentCell.Range.Text.Trim();
-
-                if (departments.Contains(departmentText))
-                {
-                    int startColumn = departmentCell.ColumnIndex;
-                    int endColumn = departmentCell.ColumnIndex + row.Cells.Count - 1;
-                    Range mergeRange = table.Cell(row.Index, startColumn).Range;
-                    mergeRange.End = table.Cell(row.Index, endColumn).Range.End;
-
-                    mergeRange.Cells.Merge();
-                    mergeRange.Cells[1].Range.Bold = 1;
-                    mergeRange.Cells.VerticalAlignment = WdCellVerticalAlignment.wdCellAlignVerticalCenter;
-                    mergeRange.Cells[1].Range.ParagraphFormat.Alignment = WdParagraphAlignment.wdAlignParagraphCenter;
-                }
-            }
+            //}            
 
 
             //foreach (Row row in table.Rows)

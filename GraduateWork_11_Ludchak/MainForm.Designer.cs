@@ -68,6 +68,8 @@
             this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.materialButton6 = new MaterialSkin.Controls.MaterialButton();
+            this.materialButton5 = new MaterialSkin.Controls.MaterialButton();
             this.materialButton4 = new MaterialSkin.Controls.MaterialButton();
             this.tabPage5 = new System.Windows.Forms.TabPage();
             this.materialButton3 = new MaterialSkin.Controls.MaterialButton();
@@ -97,7 +99,7 @@
             this.materialTabControl1.Multiline = true;
             this.materialTabControl1.Name = "materialTabControl1";
             this.materialTabControl1.SelectedIndex = 0;
-            this.materialTabControl1.Size = new System.Drawing.Size(1733, 1035);
+            this.materialTabControl1.Size = new System.Drawing.Size(1581, 917);
             this.materialTabControl1.TabIndex = 0;
             // 
             // tabPage1
@@ -112,7 +114,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 39);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(1725, 992);
+            this.tabPage1.Size = new System.Drawing.Size(1573, 874);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Вхід";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -230,7 +232,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 39);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(1707, 992);
+            this.tabPage2.Size = new System.Drawing.Size(1555, 827);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Працівники";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -387,7 +389,7 @@
             this.tabPage3.ImageKey = "check-out.png";
             this.tabPage3.Location = new System.Drawing.Point(4, 39);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Size = new System.Drawing.Size(1707, 992);
+            this.tabPage3.Size = new System.Drawing.Size(1555, 827);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Дати Відпустки";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -568,14 +570,62 @@
             // 
             // tabPage4
             // 
+            this.tabPage4.Controls.Add(this.materialButton6);
+            this.tabPage4.Controls.Add(this.materialButton5);
             this.tabPage4.Controls.Add(this.materialButton4);
             this.tabPage4.ImageKey = "report.png";
             this.tabPage4.Location = new System.Drawing.Point(4, 39);
             this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Size = new System.Drawing.Size(1707, 992);
+            this.tabPage4.Size = new System.Drawing.Size(1555, 827);
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "Звіт";
             this.tabPage4.UseVisualStyleBackColor = true;
+            // 
+            // materialButton6
+            // 
+            this.materialButton6.AutoSize = false;
+            this.materialButton6.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.materialButton6.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.materialButton6.Depth = 0;
+            this.materialButton6.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.materialButton6.Font = new System.Drawing.Font("Impact", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.materialButton6.HighEmphasis = true;
+            this.materialButton6.Icon = null;
+            this.materialButton6.Location = new System.Drawing.Point(0, 623);
+            this.materialButton6.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.materialButton6.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialButton6.Name = "materialButton6";
+            this.materialButton6.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.materialButton6.Size = new System.Drawing.Size(1555, 68);
+            this.materialButton6.TabIndex = 4;
+            this.materialButton6.Text = "Перейти до Працівників";
+            this.materialButton6.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.materialButton6.UseAccentColor = false;
+            this.materialButton6.UseVisualStyleBackColor = true;
+            this.materialButton6.Click += new System.EventHandler(this.materialButton6_Click);
+            // 
+            // materialButton5
+            // 
+            this.materialButton5.AutoSize = false;
+            this.materialButton5.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.materialButton5.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.materialButton5.Depth = 0;
+            this.materialButton5.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.materialButton5.Font = new System.Drawing.Font("Impact", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.materialButton5.HighEmphasis = true;
+            this.materialButton5.Icon = null;
+            this.materialButton5.Location = new System.Drawing.Point(0, 691);
+            this.materialButton5.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.materialButton5.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialButton5.Name = "materialButton5";
+            this.materialButton5.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.materialButton5.Size = new System.Drawing.Size(1555, 68);
+            this.materialButton5.TabIndex = 3;
+            this.materialButton5.Text = "Перейти до Плану-відпусток";
+            this.materialButton5.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.materialButton5.UseAccentColor = false;
+            this.materialButton5.UseVisualStyleBackColor = true;
+            this.materialButton5.Click += new System.EventHandler(this.materialButton5_Click);
             // 
             // materialButton4
             // 
@@ -587,12 +637,12 @@
             this.materialButton4.Font = new System.Drawing.Font("Impact", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.materialButton4.HighEmphasis = true;
             this.materialButton4.Icon = null;
-            this.materialButton4.Location = new System.Drawing.Point(0, 924);
+            this.materialButton4.Location = new System.Drawing.Point(0, 759);
             this.materialButton4.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.materialButton4.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialButton4.Name = "materialButton4";
             this.materialButton4.NoAccentTextColor = System.Drawing.Color.Empty;
-            this.materialButton4.Size = new System.Drawing.Size(1707, 68);
+            this.materialButton4.Size = new System.Drawing.Size(1555, 68);
             this.materialButton4.TabIndex = 2;
             this.materialButton4.Text = "Генерувати звіт";
             this.materialButton4.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
@@ -606,7 +656,7 @@
             this.tabPage5.ImageKey = "logout.png";
             this.tabPage5.Location = new System.Drawing.Point(4, 39);
             this.tabPage5.Name = "tabPage5";
-            this.tabPage5.Size = new System.Drawing.Size(1707, 992);
+            this.tabPage5.Size = new System.Drawing.Size(1555, 827);
             this.tabPage5.TabIndex = 4;
             this.tabPage5.Text = "Вихід";
             this.tabPage5.UseVisualStyleBackColor = true;
@@ -621,12 +671,12 @@
             this.materialButton3.Font = new System.Drawing.Font("Impact", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.materialButton3.HighEmphasis = true;
             this.materialButton3.Icon = null;
-            this.materialButton3.Location = new System.Drawing.Point(0, 924);
+            this.materialButton3.Location = new System.Drawing.Point(0, 759);
             this.materialButton3.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.materialButton3.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialButton3.Name = "materialButton3";
             this.materialButton3.NoAccentTextColor = System.Drawing.Color.Empty;
-            this.materialButton3.Size = new System.Drawing.Size(1707, 68);
+            this.materialButton3.Size = new System.Drawing.Size(1555, 68);
             this.materialButton3.TabIndex = 1;
             this.materialButton3.Text = "Вихід";
             this.materialButton3.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
@@ -652,11 +702,12 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.ClientSize = new System.Drawing.Size(1736, 1102);
+            this.ClientSize = new System.Drawing.Size(1584, 984);
             this.Controls.Add(this.materialTabControl1);
             this.DrawerShowIconsWhenHidden = true;
             this.DrawerTabControl = this.materialTabControl1;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "MainForm";
             this.Padding = new System.Windows.Forms.Padding(0, 64, 3, 3);
@@ -715,5 +766,7 @@
         private MaterialSkin.Controls.MaterialTextBox materialTextBox1;
         private MaterialSkin.Controls.MaterialButton materialButton3;
         private MaterialSkin.Controls.MaterialButton materialButton4;
+        private MaterialSkin.Controls.MaterialButton materialButton5;
+        private MaterialSkin.Controls.MaterialButton materialButton6;
     }
 }

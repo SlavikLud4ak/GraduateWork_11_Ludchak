@@ -207,12 +207,22 @@ namespace GraduateWork_11_Ludchak
             {
                 if (vacationDBContext.Employees != null)
                 {
-                    var employees = await vacationDBContext.Employees.ToListAsync();
+                    var employees = await vacationDBContext.Employees.OrderBy(e => e.Departament).ToListAsync();
                     var generator = new EmployeeDocumentGenerator();
                     generator.Generate(employees);
                 }
             }
            
+        }
+
+        private void materialButton5_Click(object sender, EventArgs e)
+        {
+            materialTabControl1.SelectedTab = tabPage3;
+        }
+
+        private void materialButton6_Click(object sender, EventArgs e)
+        {
+            materialTabControl1.SelectedTab = tabPage2;
         }
     }
 }
