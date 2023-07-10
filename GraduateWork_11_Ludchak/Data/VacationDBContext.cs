@@ -19,8 +19,8 @@ namespace GraduateWork_11_Ludchak.Data
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseCosmos(
-                "https://vp-db.documents.azure.com:443/",
-                "zoVY3Hwrte7HPGNhEtOHU4osbi1Z1by1EA1rq3637Exhs1NCx4fKbKVsKzjfWMnF3sB2O3q3LHEbACDbiNxrQQ==",
+                "",
+                "",
                 "vp-db");
         }
 
